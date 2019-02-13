@@ -76,3 +76,36 @@ function drawCircle() {
     gCtx.stroke()
     gCtx.fill()
 }
+
+function drawSquare(x, y, isDown){
+    if (isDown) {
+        if ( Math.abs(x-gLastX) > 10 || Math.abs(y-gLastY) > 10){
+            gCtx.rect(x, y, randSize(), randSize());
+            gCtx.stroke();
+
+        }
+    }
+   
+}
+
+function drawStar(x, y){
+    gCtx.beginPath();
+    gCtx.moveTo(x+13, y);
+    gCtx.lineTo(x+18, y+10);
+    gCtx.lineTo(x+28, y+9);
+    gCtx.lineTo(x+21, y+18);
+    gCtx.lineTo(x+24, y+28);
+    gCtx.lineTo(x+13, y+23);
+    gCtx.lineTo(x+4, y+28);
+    gCtx.lineTo(x+7, y+18);
+    gCtx.lineTo(x, y+11);
+    gCtx.lineTo(x+10, y+10);
+  
+    gCtx.closePath();
+    gCtx.stroke();
+}
+
+function randSize(){
+    var rand = Math.floor(Math.random() * 100) + 20; 
+    return rand;
+}
