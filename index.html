@@ -11,18 +11,30 @@
 
 <body onload="init()">
     <header>
-        <div class="gui-wrapper">
-            <input type="color">
-            <select onchange="onSelect(this)">
+        <div class="header-wrapper">
+            <h1>Welcome to Eitan's and Olga's canvas 👋</h1>
+            <div class="gui-wrapper">
+                <input id="selColor" type="color">
+                <select onchange="onSelect(this)">
                     <option value="pen">pen</option>
-                <option value="square">square</option>
-                <option value="circle">circle</option>
-            </select>
-            <button>Save</button>
-            <button>Reset</button>
+                    <option value="square">square</option>
+                    <option value="circle">circle</option>
+                    <option value="tube">tube</option>
+                </select>
+                <a href="#" onclick="onSave(this)" download="my-img.jpg">
+                    Download as jpg
+                </a>
+                <button onclick="onClear()">Reset</button>
+                <input type="file" name="image" onchange="onFileInputChange(event)" />
+
+            </div>
         </div>
     </header>
-    <canvas id="draw-canvas" ></canvas>
+    <div class="canvas-wrapper">
+        
+        <canvas id="draw-canvas"></canvas>
+    </div>
+    <div class="share-container"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
