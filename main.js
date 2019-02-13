@@ -1,3 +1,4 @@
+'use strict'
 var gCanvas 
 
 function init() {

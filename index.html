@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,23 @@
     <link rel="stylesheet" href="style.css">
     <title>canvas-ex</title>
 </head>
-<body  onload="init()">
-        <header>
-            <div class="gui-wrapper">
-                
-            </div>
-        </header>
-        <canvas  id="draw-canvas" onclick="canvasClicked(event)"></canvas>
-    
-        <script src="main.js"></script>
-    </body>
+
+<body onload="init()">
+    <header>
+        <div class="gui-wrapper">
+            <input type="text">
+            <select>
+                <option value="square">square</option>
+                <option value="circle">circle</option>
+                <option value=""></option>
+            </select>
+            <button>Save</button>
+            <button>Reset</button>
+        </div>
+    </header>
+    <canvas id="draw-canvas" onclick="canvasClicked(event)"></canvas>
+
+    <script src="main.js"></script>
+</body>
+
 </html>
