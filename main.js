@@ -44,6 +44,7 @@ function onSelect(elSelect) {
     if (selectedVal === 'square') gType = 'square'
     if (selectedVal === 'pen') gType = 'pen'
     if (selectedVal === 'tube') gType = 'tube'
+    if (selectedVal === 'star') gType = 'star'
 
 }
 
@@ -53,6 +54,7 @@ function draw(x, y, isDown) {
     if (gType === 'square') drawSquare(x, y, isDown)
     if (gType === 'circle') drawCircle(x, y, isDown)
     if (gType === 'tube') drawTube(x, y, isDown)
+    if (gType === 'star') drawStar(x, y, isDown)
 
     gLastX = x;
     gLastY = y;
@@ -70,6 +72,38 @@ function drawPen(x, y, isDown) {
         gCtx.closePath();
         gCtx.stroke();
     }
+}
+
+function drawStar(x, y) {
+    gCtx.beginPath();
+    gCtx.strokeStyle = $('#selColor').val();
+
+    gCtx.moveTo(x + 13, y);
+    gCtx.lineTo(x + 18, y + 10);
+    gCtx.lineTo(x + 28, y + 9);
+    gCtx.lineTo(x + 21, y + 18);
+    gCtx.lineTo(x + 24, y + 28);
+    gCtx.lineTo(x + 13, y + 23);
+    gCtx.lineTo(x + 4, y + 28);
+    gCtx.lineTo(x + 7, y + 18);
+    gCtx.lineTo(x, y + 11);
+    gCtx.lineTo(x + 10, y + 10);
+
+    gCtx.closePath();
+    gCtx.stroke();
+}
+
+function drawSquare(x, y, isDown) {
+    if (isDown) {
+        if (Math.abs(x - gLastX) > 10 || Math.abs(y - gLastY) > 10) {
+            gCtx.strokeStyle = $('#selColor').val();
+
+            gCtx.rect(x, y, randSize(), randSize());
+            gCtx.stroke();
+
+        }
+    }
+
 }
 
 function drawCircle(x, y, isDown) {
@@ -131,4 +165,11 @@ function handleImageFromInput(ev, onImageReady) {
         img.src = event.target.result;
     }
     reader.readAsDataURL(ev.target.files[0]);
+
+}
+
+
+function randSize() {
+    var rand = Math.floor(Math.random() * 100) + 20;
+    return rand;
 }
