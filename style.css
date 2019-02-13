@@ -10,6 +10,7 @@ body {
     top: 10px;
     left: 10px;
     position: absolute;
+    color: red;
 }
 
 canvas {
