@@ -12,11 +12,11 @@
 <body onload="init()">
     <header>
         <div class="gui-wrapper">
-            <input type="text">
-            <select>
+            <input type="color">
+            <select onchange="onSelect(this)">
+                    <option value="pen">pen</option>
                 <option value="square">square</option>
                 <option value="circle">circle</option>
-                <option value=""></option>
             </select>
             <button>Save</button>
             <button>Reset</button>
